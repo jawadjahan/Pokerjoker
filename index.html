@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Poker Balance Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <div>
+      <h1>♠ Poker Balance Tracker</h1>
+      <p>Live bets • Pot • Winners • Balances • History</p>
+    </div>
+    <button id="newGameBtn" class="danger">New Game</button>
+  </header>
+
+  <section id="setup" class="card">
+    <h2>Game Setup</h2>
+    <div class="grid">
+      <label>Starting balance
+        <input id="startingBalance" type="number" min="0" value="1000">
+      </label>
+      <label>Small blind
+        <input id="smallBlind" type="number" min="0" value="10">
+      </label>
+      <label>Big blind
+        <input id="bigBlind" type="number" min="0" value="20">
+      </label>
+    </div>
+    <div class="add-row">
+      <input id="playerName" placeholder="Player name">
+      <button id="addPlayerBtn" class="primary">Add Player</button>
+    </div>
+    <div id="setupPlayers" class="players-list"></div>
+    <button id="startGameBtn" class="primary wide">Start Game</button>
+  </section>
+
+  <main id="game" hidden>
+    <section class="stats">
+      <div><span>Round</span><strong id="roundNo">1</strong></div>
+      <div><span>Pot</span><strong id="pot">৳0</strong></div>
+      <div><span>Current bet</span><strong id="currentBet">৳0</strong></div>
+      <div><span>Active players</span><strong id="activeCount">0</strong></div>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Live Round</h2>
+        <button id="resetRoundBtn">Reset Round</button>
+      </div>
+      <div id="players" class="player-grid"></div>
+      <div class="round-actions">
+        <button id="finishRoundBtn" class="success">Finish Round</button>
+      </div>
+    </section>
+
+    <section id="winnerPanel" class="card" hidden>
+      <h2>🏆 Round Result</h2>
+      <p class="muted">Select one or more winners. If multiple winners are selected, the pot is split as evenly as possible.</p>
+      <div id="winnerList"></div>
+      <button id="confirmWinnerBtn" class="success wide">Pay Winners & Save Round</button>
+    </section>
+
+    <section class="card">
+      <div class="section-head"><h2>Players</h2><span class="muted">Tap a player to see details</span></div>
+      <div id="summaryPlayers"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Round History</h2>
+        <button id="clearHistoryBtn" class="danger">Clear History</button>
+      </div>
+      <div id="history"></div>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
